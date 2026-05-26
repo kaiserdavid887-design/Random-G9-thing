@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ridiculous Life Formula Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🧮 Ridiculous Life Formula Generator</h1>
+            <p class="subtitle">Because apparently your chaos needed mathematics.</p>
+        </header>
+
+        <main class="dashboard-grid">
+            <section class="card control-panel">
+                <h2>🔮 Step 1: Input Your Chaos</h2>
+                
+                <div class="input-group">
+                    <label for="scenario-select" class="label-title">Select Scenario:</label>
+                    <div class="tooltip">Choose the life crisis you are currently facing.</div>
+                    <select id="scenario-select">
+                        <option value="Exam Week">📝 Exam Week</option>
+                        <option value="Group Project">🤝 Group Project</option>
+                        <option value="Family Dinner">🍽️ Family Dinner</option>
+                        <option value="First Date">🕯️ First Date</option>
+                        <option value="School Presentation">📊 School Presentation</option>
+                        <option value="Suspicious Restaurant">🍲 Suspicious Restaurant</option>
+                        <option value="Zombie Apocalypse">🧟 Zombie Apocalypse</option>
+                        <option value="Vacation With Parents">🚗 Vacation With Parents</option>
+                    </select>
+                </div>
+
+                <div class="sliders-grid">
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <label for="slider-stress">😬 Stress Level</label>
+                            <span class="badge" id="val-stress">5</span>
+                        </div>
+                        <input type="range" id="slider-stress" min="0" max="10" value="5">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <label for="slider-caffeine">☕ Caffeine Level</label>
+                            <span class="badge" id="val-caffeine">5</span>
+                        </div>
+                        <input type="range" id="slider-caffeine" min="0" max="10" value="5">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <label for="slider-confidence">😎 Confidence</label>
+                            <span class="badge" id="val-confidence">5</span>
+                        </div>
+                        <input type="range" id="slider-confidence" min="0" max="10" value="5">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <label for="slider-commonsense">🧠 Common Sense</label>
+                            <span class="badge" id="val-commonsense">5</span>
+                        </div>
+                        <input type="range" id="slider-commonsense" min="0" max="10" value="5">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <label for="slider-witnesses">👀 Number of Witnesses</label>
+                            <span class="badge" id="val-witnesses">5</span>
+                        </div>
+                        <input type="range" id="slider-witnesses" min="0" max="10" value="5">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <label for="slider-awkwardness">🦎 Awkwardness</label>
+                            <span class="badge" id="val-awkwardness">5</span>
+                        </div>
+                        <input type="range" id="slider-awkwardness" min="0" max="10" value="5">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <label for="slider-snacks">🍕 Snack Supply</label>
+                            <span class="badge" id="val-snacks">5</span>
+                        </div>
+                        <input type="range" id="slider-snacks" min="0" max="10" value="5">
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <label for="slider-pressure">⏳ Deadline Pressure</label>
+                            <span class="badge" id="val-pressure">5</span>
+                        </div>
+                        <input type="range" id="slider-pressure" min="0" max="10" value="5">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="btn-randomize" class="btn secondary-btn">🎲 Randomize Sliders</button>
+                    <button id="btn-calculate" class="btn primary-btn">💥 Calculate My Doom</button>
+                </div>
+            </section>
+
+            <section class="right-column">
+                
+                <div id="results-card" class="card hidden fade-in">
+                    <h2>📊 Mathematical Verdict</h2>
+                    
+                    <div class="diagnosis-box">
+                        <h3>Final Diagnosis</h3>
+                        <div id="final-diagnosis" class="diagnosis-text">-</div>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <span class="metric-label">🎭 Drama Index</span>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="bar-drama"></div>
+                            </div>
+                            <span class="metric-value" id="val-drama">0%</span>
+                            <p class="metric-desc" id="desc-drama"></p>
+                        </div>
+
+                        <div class="metric-item">
+                            <span class="metric-label">❤️ Survival Probability</span>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="bar-survival"></div>
+                            </div>
+                            <span class="metric-value" id="val-survival">0%</span>
+                            <p class="metric-desc" id="desc-survival"></p>
+                        </div>
+
+                        <div class="metric-item">
+                            <span class="metric-label">🚨 Social Risk Score</span>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="bar-social"></div>
+                            </div>
+                            <span class="metric-value" id="val-social">0%</span>
+                            <p class="metric-desc" id="desc-social"></p>
+                        </div>
+
+                        <div class="metric-item">
+                            <span class="metric-label">🔥 Chaos Level</span>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="bar-chaos"></div>
+                            </div>
+                            <span class="metric-value" id="val-chaos">0%</span>
+                            <p class="metric-desc" id="desc-chaos"></p>
+                        </div>
+                    </div>
+
+                    <div id="report-box" class="report-box hidden">
+                        <h4>📋 Official Peer-Reviewed Analysis</h4>
+                        <p id="report-text"></p>
+                    </div>
+
+                    <div class="result-actions">
+                        <button id="btn-report" class="btn secondary-btn">🔬 Generate Scientific Report</button>
+                        <button id="btn-copy" class="btn secondary-btn">📋 Copy Result</button>
+                    </div>
+
+                    <div class="leaderboard-submit" id="leaderboard-submit-box">
+                        <hr>
+                        <h4>Sign the Hall of Shame</h4>
+                        <div class="submit-row">
+                            <input type="text" id="nickname-input" placeholder="Enter your alias..." maxlength="15">
+                            <button id="btn-submit-score" class="btn primary-btn">Save Score</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>🏆 Hall of Shame (Top 5 Chaos Levels)</h2>
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Name</th>
+                                <th>Scenario</th>
+                                <th>Diagnosis</th>
+                                <th>Chaos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
